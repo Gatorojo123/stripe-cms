@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "carreras",
+  "info": {
+    "singularName": "carrera",
+    "pluralName": "carreras",
+    "displayName": "Carrera"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "convocatorias": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::convocatoria.convocatoria",
+      "inversedBy": "carreras"
+    }
+  }
+}

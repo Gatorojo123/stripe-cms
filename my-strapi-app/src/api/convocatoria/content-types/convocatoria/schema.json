@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "convocatorias",
+  "info": {
+    "singularName": "convocatoria",
+    "pluralName": "convocatorias",
+    "displayName": "Convocatoria",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "enddate": {
+      "type": "datetime"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::author.author",
+      "inversedBy": "convocatorias"
+    },
+    "organizacion": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::organizacion.organizacion",
+      "inversedBy": "convocatorias"
+    },
+    "departamentos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::departamento.departamento",
+      "mappedBy": "convocatorias"
+    },
+    "carreras": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::carrera.carrera",
+      "mappedBy": "convocatorias"
+    },
+    "formacions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::formacion.formacion",
+      "mappedBy": "convocatorias"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "organizacions",
+  "info": {
+    "singularName": "organizacion",
+    "pluralName": "organizacions",
+    "displayName": "organizacion",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "metaTitle": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "metaDescription": {
+      "type": "text"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "convocatorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::convocatoria.convocatoria",
+      "mappedBy": "organizacion"
+    }
+  }
+}
